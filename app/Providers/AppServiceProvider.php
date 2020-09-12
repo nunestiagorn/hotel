@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Booking;
 use App\Observers\BookingObserver;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,5 +27,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Booking::observe(BookingObserver::class);
+        Schema::defaultStringLength(191);
     }
 }
